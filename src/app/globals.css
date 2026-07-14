@@ -1,43 +1,37 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Brand blue — cool, desaturated, cinematic (not SaaS azure) */
-  --color-brand-50: #EEF3F8;
-  --color-brand-100: #DDE6EF;
-  --color-brand-200: #C0CFDE;
-  --color-brand-300: #9DB1C6;
-  --color-brand-400: #7389A3;
-  --color-brand-500: #6B80A0;
-  --color-brand-600: #3C4E63;
-  --color-brand-700: #2A3849;
-  --color-brand-800: #1B2634;
-  --color-brand-900: #121A26;
-  --color-brand-950: #0B111A;
+  /* Light theme — warm white background, brown/red ink.
+     Ramp reversed: 50 = darkest ink, 950 = paper. */
+  --color-brand-50: #241811;
+  --color-brand-100: #33241A;
+  --color-brand-200: #493421;
+  --color-brand-300: #5E4630;
+  --color-brand-400: #755A3F;
+  --color-brand-500: #7F6244;
+  --color-brand-600: #B29A7C;
+  --color-brand-700: #CDB99C;
+  --color-brand-800: #E3D6C0;
+  --color-brand-900: #F1E9DA;
+  --color-brand-950: #FAF7F1;
 
-  /* Gold accent */
-  --color-gold: #F5A623;
-  --color-gold-dark: #D4891A;
-
-  /* Warm neutrals */
-  --color-warm-50: #FAF9F7;
-  --color-warm-100: #F0EDE8;
-  --color-warm-200: #E0D9D0;
-  --color-warm-300: #C8BDB0;
-  --color-warm-400: #A89585;
-  --color-warm-500: #8C7B6B;
-  --color-warm-600: #6E5F52;
-  --color-warm-700: #524639;
-  --color-warm-800: #362E25;
-  --color-warm-900: #1E1A15;
+  /* Accents — steel blue (matches the hero backdrop) */
+  --color-gold: #4A7396;        /* steel blue (primary accent) */
+  --color-gold-dark: #3A5C78;
+  --color-rust: #6B4A2E;        /* brown */
+  --color-rust-dark: #4A3320;
+  --color-avocado: #6E6A2C;
+  --color-blue: #8FB2CE;        /* semi-light steel blue (from the hero backdrop) */
+  --color-blue-deep: #5E86A6;
 
   /* Fonts */
-  --font-display: var(--font-playfair);
-  --font-body: var(--font-dm-sans);
+  --font-display: var(--font-bodoni);
+  --font-body: var(--font-archivo);
 }
 
 :root {
-  --background: #0B111A;
-  --foreground: #EEF3F8;
+  --background: #FAF7F1;
+  --foreground: #241811;
 }
 
 html {
@@ -47,93 +41,47 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: var(--font-archivo), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Holographic / iridescent primary — a swirl of blue → purple → green foil.
-   Trial accent applied via .holo-text (clipped gradient) and .holo-bg. */
-:root {
-  --holo: linear-gradient(
-    115deg,
-    #5B8CFF 0%,
-    #8A5CF6 18%,
-    #C45CF6 34%,
-    #5CE1E6 55%,
-    #43E97B 74%,
-    #8A5CF6 90%,
-    #5B8CFF 100%
-  );
-}
-
-.holo-text {
-  background: var(--holo);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: holo-shift 9s ease-in-out infinite;
-}
-
-.holo-bg {
-  background: var(--holo);
-  background-size: 300% 300%;
-  animation: holo-shift 9s ease-in-out infinite;
-}
-
-@keyframes holo-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .holo-text,
-  .holo-bg { animation: none; }
-}
-
-/* Text link CTA — underlined uppercase text instead of filled buttons.
-   Underline is a pseudo-element so it can go gradient on hover. */
-.link-cta {
-  position: relative;
+/* Sharp-edged buttons — hard borders, zero radius, invert-on-hover */
+.btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 500;
+  border: 2px solid var(--color-blue-deep);
   color: var(--color-brand-50);
-  transition: color 0.25s ease;
+  background: var(--color-blue);
+  border-radius: 0;
+  padding: 0.7rem 1.6rem;
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
 }
-.link-cta::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.4rem;
-  width: 100%;
-  height: 1.5px;
-  background: var(--color-brand-50);
-  opacity: 0.4;
-  transition: opacity 0.25s ease, height 0.25s ease, bottom 0.25s ease, background 0.25s ease;
+.btn:hover {
+  background: var(--color-blue-deep);
+  color: var(--color-brand-50);
 }
-.link-cta:hover {
-  background: var(--holo);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: holo-shift 9s ease-in-out infinite;
+
+.btn-solid {
+  background: var(--color-blue);
+  color: var(--color-brand-50);
+  border-color: var(--color-blue-deep);
 }
-.link-cta:hover::after {
-  opacity: 1;
-  height: 2px;
-  bottom: -0.55rem;
-  background: var(--holo);
+.btn-solid:hover {
+  background: var(--color-blue-deep);
+  border-color: var(--color-blue-deep);
+  color: var(--color-brand-50);
 }
-.link-cta.is-disabled {
+
+.btn.is-disabled {
   opacity: 0.5;
   pointer-events: none;
 }
