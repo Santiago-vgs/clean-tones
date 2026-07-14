@@ -23,7 +23,7 @@ export default function ShowCard({ gig, past = false }: ShowCardProps) {
 
   return (
     <div
-      className={`group flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 rounded-xl border transition-all duration-300 ${
+      className={`group flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 rounded-none border transition-all duration-300 ${
         past
           ? "border-brand-900 bg-brand-900/20 opacity-60"
           : "border-brand-800 bg-brand-900/40 hover:border-brand-600 hover:bg-brand-800/30"
@@ -68,7 +68,7 @@ export default function ShowCard({ gig, past = false }: ShowCardProps) {
               className={
                 isSoldOut
                   ? "inline-block text-sm tracking-[0.2em] uppercase font-medium text-brand-600 cursor-not-allowed line-through"
-                  : "link-cta text-sm"
+                  : "btn"
               }
             >
               {isSoldOut ? "Sold Out" : "Tickets"}

@@ -14,14 +14,14 @@ export default function ShowList({ upcoming, past }: ShowListProps) {
       {/* Upcoming */}
       <section className="mb-20">
         {upcoming.length === 0 ? (
-          <div className="text-center py-24 border border-brand-800 rounded-xl bg-brand-900/20">
+          <div className="text-center py-24 border border-brand-800 rounded-none bg-brand-900/20">
             <p className="text-brand-300 text-xl font-semibold mb-2">No upcoming shows right now.</p>
             <p className="text-brand-500 text-sm mb-8">Follow us to be first to know when we announce.</p>
             <a
               href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-cta text-sm"
+              className="btn"
             >
               Follow on Instagram
             </a>
