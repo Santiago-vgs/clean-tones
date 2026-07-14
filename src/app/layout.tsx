@@ -3,6 +3,8 @@ import { Bodoni_Moda, Archivo } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import PickCursor from "@/components/shared/PickCursor";
+import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -24,10 +26,16 @@ export const metadata: Metadata = {
     template: "%s · The Clean Tones",
   },
   description:
-    "The Clean Tones are a rock and blues band from Perth, Western Australia. Catch them live, stream their music, and stay in the loop.",
+    "The Clean Tones are an alternative rock band from Perth, Western Australia. Catch them live, stream their music, and stay in the loop.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "The Clean Tones",
-    description: "Rock & blues from Perth, Western Australia.",
+    description: "Alternative rock from Perth, Western Australia.",
+    url: "/",
+    siteName: "The Clean Tones",
+    locale: "en_AU",
     type: "website",
   },
 };
@@ -43,6 +51,8 @@ export default function RootLayout({
       className={`${bodoni.variable} ${archivo.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
+        <PickCursor />
+        <ScrollReveal />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

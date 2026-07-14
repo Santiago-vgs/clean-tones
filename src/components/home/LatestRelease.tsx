@@ -13,7 +13,7 @@ const streamingLinks = [
 
 export default function LatestRelease() {
   return (
-    <section className="py-24 px-6">
+    <section data-reveal className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <p className="text-brand-400 text-xs tracking-[0.3em] uppercase mb-3 text-center">
           Latest Release

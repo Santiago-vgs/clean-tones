@@ -25,7 +25,7 @@ const links = [
 
 export default function QuickLinks() {
   return (
-    <section className="py-24 px-6 bg-brand-900/20">
+    <section data-reveal className="py-24 px-6 bg-brand-900/20">
       <div className="max-w-7xl mx-auto">
         <p className="text-brand-400 text-xs tracking-[0.3em] uppercase mb-12 text-center">
           Explore

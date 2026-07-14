@@ -2,7 +2,7 @@ import { BAND_EMAIL } from "@/lib/constants";
 
 export default function PressKit() {
   return (
-    <section className="border-t border-brand-800 pt-16">
+    <section data-reveal className="border-t border-brand-800 pt-16">
       <p className="text-brand-400 text-xs tracking-[0.3em] uppercase mb-3">For Media & Bookers</p>
       <h2 className="font-display text-4xl font-bold text-brand-50 uppercase mb-8">
         Bookings & Press

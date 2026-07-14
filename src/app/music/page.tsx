@@ -17,7 +17,7 @@ export default function MusicPage() {
         <PageHeader eyebrow="Discography" title="Music" />
 
         {/* Featured player + release grid */}
-        <section className="mb-24">
+        <section data-reveal className="mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             {/* Sticky Spotify embed */}
@@ -61,7 +61,7 @@ export default function MusicPage() {
         </section>
 
         {/* Videos section */}
-        <section>
+        <section data-reveal>
           <div className="border-t border-brand-800 pt-16">
             <p className="text-brand-400 text-xs tracking-[0.3em] uppercase mb-3">Watch</p>
             <h2 className="font-display text-4xl font-bold text-brand-50 uppercase mb-12">

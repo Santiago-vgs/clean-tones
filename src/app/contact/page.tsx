@@ -55,7 +55,7 @@ export default function ContactPage() {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6 mb-16">
+          <form data-reveal onSubmit={handleSubmit} className="space-y-6 mb-16">
             <div>
               <label htmlFor="name" className="block text-brand-400 text-xs tracking-[0.2em] uppercase mb-2">
                 Name

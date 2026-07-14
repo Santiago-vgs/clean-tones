@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Light theme — warm white background, brown/red ink.
+  /* Light theme — cool blue-grey neutrals (no warm/yellow cast).
      Ramp reversed: 50 = darkest ink, 950 = paper. */
-  --color-brand-50: #241811;
-  --color-brand-100: #33241A;
-  --color-brand-200: #493421;
-  --color-brand-300: #5E4630;
-  --color-brand-400: #755A3F;
-  --color-brand-500: #7F6244;
-  --color-brand-600: #B29A7C;
-  --color-brand-700: #CDB99C;
-  --color-brand-800: #E3D6C0;
-  --color-brand-900: #F1E9DA;
-  --color-brand-950: #FAF7F1;
+  --color-brand-50: #1A2430;
+  --color-brand-100: #26333F;
+  --color-brand-200: #33414F;
+  --color-brand-300: #48586A;
+  --color-brand-400: #5F7085;
+  --color-brand-500: #5E7186;
+  --color-brand-600: #9DAEC0;
+  --color-brand-700: #C0CDDA;
+  --color-brand-800: #D8E2EC;
+  --color-brand-900: #E9EFF5;
+  --color-brand-950: #F4F8FB;
 
   /* Accents — steel blue (matches the hero backdrop) */
   --color-gold: #4A7396;        /* steel blue (primary accent) */
@@ -30,8 +30,69 @@
 }
 
 :root {
-  --background: #FAF7F1;
-  --foreground: #241811;
+  --background: #F4F8FB;
+  --foreground: #1A2430;
+  /* Holographic swirl (used by the pick cursor) */
+  --holo: linear-gradient(115deg, #5B8CFF, #8A5CF6, #C45CF6, #5CE1E6, #43E97B, #8A5CF6, #5B8CFF);
+  /* Guitar-pick cursor (hotspot at the point) */
+  --pick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='34' viewBox='0 0 30 34'%3E%3Cpath d='M6 5 C11 2.5 19 2.5 24 5 C28.5 7.5 29.5 12 27 17 C24.5 22 19 28.5 15 31.5 C11 28.5 5.5 22 3 17 C0.5 12 1.5 7.5 6 5 Z' fill='%23D19A3C' stroke='%233A2A1E' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E") 15 31, auto;
+}
+
+/* Guitar-pick cursor across the site; text caret stays in form fields */
+html,
+a,
+button,
+label,
+summary,
+select,
+[role="button"] {
+  cursor: var(--pick);
+}
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+/* When the animated holographic pick is active, hide the native cursor */
+.has-pick-cursor,
+.has-pick-cursor * {
+  cursor: none !important;
+}
+
+/* Holographic guitar-pick cursor that follows the mouse */
+.pick-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+}
+.pick-cursor.is-visible {
+  opacity: 1;
+}
+.pick-cursor__pick {
+  width: 30px;
+  height: 34px;
+  transform: rotate(135deg);
+  transform-origin: 15px 17px;
+  background: var(--holo);
+  background-size: 300% 300%;
+  animation: holo-shift 5s ease-in-out infinite;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='34' viewBox='0 0 30 34'%3E%3Cpath d='M6 5 C11 2.5 19 2.5 24 5 C28.5 7.5 29.5 12 27 17 C24.5 22 19 28.5 15 31.5 C11 28.5 5.5 22 3 17 C0.5 12 1.5 7.5 6 5 Z' fill='%23000'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='34' viewBox='0 0 30 34'%3E%3Cpath d='M6 5 C11 2.5 19 2.5 24 5 C28.5 7.5 29.5 12 27 17 C24.5 22 19 28.5 15 31.5 C11 28.5 5.5 22 3 17 C0.5 12 1.5 7.5 6 5 Z' fill='%23000'/%3E%3C/svg%3E") no-repeat center / contain;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes holo-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pick-cursor__pick { animation: none; }
 }
 
 html {
@@ -54,7 +115,11 @@ body {
   gap: 0.5rem;
   border: 2px solid var(--color-blue-deep);
   color: var(--color-brand-50);
-  background: var(--color-blue);
+  /* Two-stop gradient parked to the right; slides left on hover = fill swipe */
+  background-image: linear-gradient(90deg, var(--color-blue-deep) 0 50%, var(--color-blue) 50% 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
   border-radius: 0;
   padding: 0.7rem 1.6rem;
   font-family: var(--font-archivo), system-ui, sans-serif;
@@ -62,26 +127,41 @@ body {
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  cursor: pointer;
+  transition: background-position 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.2s ease,
+    border-color 0.15s ease;
+  cursor: var(--pick);
 }
 .btn:hover {
-  background: var(--color-blue-deep);
-  color: var(--color-brand-50);
-}
-
-.btn-solid {
-  background: var(--color-blue);
-  color: var(--color-brand-50);
-  border-color: var(--color-blue-deep);
-}
-.btn-solid:hover {
-  background: var(--color-blue-deep);
-  border-color: var(--color-blue-deep);
-  color: var(--color-brand-50);
+  background-position: 0 0;
 }
 
 .btn.is-disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+/* Hero load reveal */
+@keyframes reveal-rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal-load {
+  opacity: 0;
+  animation: reveal-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Scroll reveal (enabled only once JS mounts, so no-JS shows content) */
+.reveal-enabled [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal-enabled [data-reveal].is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-load { animation: none; opacity: 1; }
+  .reveal-enabled [data-reveal] { opacity: 1; transform: none; transition: none; }
 }

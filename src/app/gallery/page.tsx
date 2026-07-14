@@ -41,7 +41,7 @@ export default function GalleryPage() {
 
           <PageHeader eyebrow="Photos" title="Gallery" />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          <div data-reveal className="grid grid-cols-2 md:grid-cols-3 gap-2">
             {PHOTOS.map((photo, i) => (
               <button
                 key={i}

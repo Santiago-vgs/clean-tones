@@ -12,7 +12,7 @@ export default function ShowList({ upcoming, past }: ShowListProps) {
   return (
     <div>
       {/* Upcoming */}
-      <section className="mb-20">
+      <section data-reveal className="mb-20">
         {upcoming.length === 0 ? (
           <div className="text-center py-24 border border-brand-800 rounded-none bg-brand-900/20">
             <p className="text-brand-300 text-xl font-semibold mb-2">No upcoming shows right now.</p>

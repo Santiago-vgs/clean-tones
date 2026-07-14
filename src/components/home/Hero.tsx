@@ -22,22 +22,22 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <p className="text-white/85 text-sm tracking-[0.3em] uppercase mb-4 font-semibold [text-shadow:0_1px_12px_rgba(0,0,0,0.8)]">
+        <p className="reveal-load text-white/85 text-sm tracking-[0.3em] uppercase mb-4 font-semibold [text-shadow:0_1px_12px_rgba(0,0,0,0.8)]" style={{ animationDelay: "0.1s" }}>
           Perth, Western Australia
         </p>
-        <h1 className="font-display text-7xl md:text-9xl text-white uppercase mb-6 leading-[0.9] [text-shadow:0_3px_24px_rgba(0,0,0,0.85)]">
+        <h1 className="reveal-load font-display text-7xl md:text-9xl text-white uppercase mb-6 leading-[0.9] [text-shadow:0_3px_24px_rgba(0,0,0,0.85)]" style={{ animationDelay: "0.2s" }}>
           Clean Tones
         </h1>
-        <p className="text-white/85 text-lg md:text-xl mb-10 tracking-wide [text-shadow:0_1px_16px_rgba(0,0,0,0.8)]">
+        <p className="reveal-load text-white/85 text-lg md:text-xl mb-10 tracking-wide [text-shadow:0_1px_16px_rgba(0,0,0,0.8)]" style={{ animationDelay: "0.42s" }}>
           Jay, Jayden, Santy and Joseph
         </p>
-        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-          <Link href="/music" className="btn btn-solid">
+        <div className="reveal-load flex flex-col sm:flex-row gap-8 justify-center items-center" style={{ animationDelay: "0.56s" }}>
+          <Link href="/music" className="btn">
             Listen Now
           </Link>
           <Link
             href="/shows"
-            className="btn !bg-transparent !border-white !text-white hover:!bg-white hover:!text-brand-50"
+            className="btn !bg-none !border-white !text-white hover:!bg-white hover:!text-brand-50"
           >
             See Shows
           </Link>
