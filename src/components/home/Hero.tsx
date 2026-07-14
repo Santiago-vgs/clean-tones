@@ -1,19 +1,27 @@
-import Image from "next/image";
+import { getImageProps } from "next/image";
 import Link from "next/link";
 import { BAND_NAME } from "@/lib/constants";
 
 export default function Hero() {
+  // Art direction: wide band photo on desktop, the 2x2 member grid on mobile
+  // (a portrait mobile viewport would crop the end members out of the wide shot).
+  const common = { alt: `${BAND_NAME} band photo`, fill: true, sizes: "100vw", priority: true };
+  const {
+    props: { srcSet: desktopSrcSet },
+  } = getImageProps({ ...common, src: "/images/band/hero.jpg" });
+  const {
+    props: { srcSet: mobileSrcSet, ...imgProps },
+  } = getImageProps({ ...common, src: "/images/band/groupshot.jpeg" });
+
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background photo */}
-      <Image
-        src="/images/band/hero.jpg"
-        alt={`${BAND_NAME} band photo`}
-        fill
-        priority
-        className="object-cover object-center"
-        sizes="100vw"
-      />
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-neutral-900">
+      {/* Background photo (art-directed) */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet={desktopSrcSet} />
+        <source media="(max-width: 767px)" srcSet={mobileSrcSet} />
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
+        <img {...imgProps} className="object-cover object-center" />
+      </picture>
 
       {/* Dark overlay so the band photo carries light type (hero stays dark
           even though the rest of the site is on paper white) */}
