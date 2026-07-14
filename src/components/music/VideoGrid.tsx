@@ -16,7 +16,7 @@ export default function VideoGrid() {
           <button
             key={video.id}
             onClick={() => setActiveId(video.id)}
-            className="group relative aspect-video rounded-xl overflow-hidden border border-brand-800 hover:border-brand-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-950"
+            className="group relative aspect-video rounded-none overflow-hidden border border-brand-800 hover:border-brand-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-950"
           >
             <Image
               src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
@@ -67,7 +67,7 @@ export default function VideoGrid() {
             >
               <FaTimes size={24} />
             </button>
-            <div className="aspect-video rounded-xl overflow-hidden shadow-2xl">
+            <div className="aspect-video rounded-none overflow-hidden shadow-2xl">
               <iframe
                 src={`https://www.youtube.com/embed/${activeId}?autoplay=1`}
                 width="100%"

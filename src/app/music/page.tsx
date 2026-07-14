@@ -28,7 +28,7 @@ export default function MusicPage() {
               <h2 className="font-display text-3xl font-bold text-brand-50 mb-6">
                 {activeRelease.title}
               </h2>
-              <div className="rounded-xl overflow-hidden shadow-2xl shadow-brand-950">
+              <div className="rounded-none overflow-hidden shadow-2xl shadow-brand-950">
                 <iframe
                   key={activeRelease.id}
                   src={activeRelease.spotifyEmbedSrc}

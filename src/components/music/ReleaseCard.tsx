@@ -17,7 +17,7 @@ export default function ReleaseCard({ release, onSelect, isActive }: ReleaseCard
   return (
     <button
       onClick={() => onSelect(release)}
-      className={`group text-left w-full rounded-xl border transition-all duration-300 overflow-hidden ${
+      className={`group text-left w-full rounded-none border transition-all duration-300 overflow-hidden ${
         isActive
           ? "border-gold bg-brand-800/60 shadow-lg shadow-brand-950"
           : "border-brand-800 bg-brand-900/40 hover:border-brand-600 hover:bg-brand-800/40"
@@ -39,7 +39,7 @@ export default function ReleaseCard({ release, onSelect, isActive }: ReleaseCard
           </div>
         )}
         {isActive && (
-          <div className="absolute inset-0 border-2 border-gold/40 rounded-xl pointer-events-none" />
+          <div className="absolute inset-0 border-2 border-gold/40 rounded-none pointer-events-none" />
         )}
       </div>
 
