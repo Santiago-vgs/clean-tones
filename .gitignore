@@ -41,6 +41,9 @@ yarn-error.log*
 .agents/
 skills-lock.json
 
+# local-only deploy notes
+DEPLOY.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
