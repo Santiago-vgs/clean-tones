@@ -105,7 +105,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className={`link-cta text-sm ${status === "sending" ? "is-disabled" : ""}`}
+              className={`btn ${status === "sending" ? "is-disabled" : ""}`}
             >
               {status === "sending" ? "Sending…" : "Send Message"}
             </button>
