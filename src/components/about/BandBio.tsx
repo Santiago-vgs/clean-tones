@@ -1,13 +1,13 @@
 export default function BandBio() {
   return (
-    <section className="mb-20">
+    <section data-reveal className="mb-20">
       <h2 className="font-display text-4xl font-bold text-brand-50 uppercase mb-8">
         The Band
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div className="space-y-5 text-brand-300 leading-relaxed">
           <p>
-            The Clean Tones are an alternative rock band from Perth, though the label barely holds, since the songs wander through just about every genre going.
+            The Clean Tones are an alternative rock band from Perth, though the label barely holds, since the songs cover many genres.
           </p>
           <p>
             What people really latch onto is the energy. You can tell these four are having fun up on stage, and it turns out that&apos;s pretty contagious.

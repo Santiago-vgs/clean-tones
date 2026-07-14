@@ -18,8 +18,8 @@ const MEMBERS = [
     bio: {
       influences: ["Guns N' Roses", "Red Hot Chili Peppers", "Van Halen", "Steely Dan"],
       favouriteFood: "Coles Ultimate Cookies 40% Chocolate Chip",
-      funFact: "Played a gig 6 weeks after elbow reconstruction surgery",
-      howJoined: "Josh Blackwell told Jayden I could play bass and we played at Mojo's with no rehearsal.",
+      funFact: "Played a gig six weeks after elbow reconstruction surgery",
+      howJoined: "Josh Blackwell put my name forward to Jayden, and we played Mojo's with no rehearsal.",
       films: ["Monty Python and the Holy Grail", "The Lord of the Rings", "Mad Max", "Reservoir Dogs"],
     },
   },
@@ -31,10 +31,9 @@ const MEMBERS = [
     bio: {
       influences: ["The Beatles", "Ball Park Music", "Crowded House", "Arctic Monkeys", "Oasis"],
       favouriteFood: "Chicken Parmi",
-      funFact: "Was once ranked best in Perth at Tetris (on iPhone)",
-      howJoined: "I formed Clean Tones for a gig at Mojos Bar in 2022.",
+      funFact: "Once held the top Tetris ranking in Perth",
+      howJoined: "Formed Clean Tones for a gig at Mojo's Bar in 2022.",
       films: ["Parasite", "Shaun of the Dead", "Good Will Hunting", "The Truman Show"],
-      filmsNote: "(semi pretentious I know)",
     },
   },
   {
@@ -56,10 +55,10 @@ const MEMBERS = [
     photo: "/images/members/joseph.jpg",
     objectPosition: "50% 65%",
     bio: {
-      influences: ["Foo Fighters", "Red Hot Chili Peppers", "Nate Smith", "CCM drumming from 2007–2009 (and probably 2017 too)"],
-      favouriteFood: "Nacho fries from GYG with spicy chicken + extra chicken and a Coke Zero. It's really my happy place, my goodness.",
-      funFact: "I'm scared to hold babies, worried I'll accidentally drop it and that'll be awkward.",
-      howJoined: "I joined Clean Tones because Josh Blackwell moved to South Africa and Jayden already had the Mojo's gig booked.",
+      influences: ["Foo Fighters", "Red Hot Chili Peppers", "Nate Smith", "CCM drumming (2007–2009)"],
+      favouriteFood: "Nacho fries from Guzman y Gomez, with spicy chicken, extra chicken, and a Coke Zero",
+      funFact: "Slightly nervous about holding babies, in case he drops one",
+      howJoined: "Stepped in when Josh Blackwell moved to South Africa, with the Mojo's gig already booked.",
       films: ["The Empire Strikes Back", "School of Rock", "Project Hail Mary", "Despicable Me"],
     },
   },
@@ -82,7 +81,7 @@ export default function AboutPage() {
             The Lineup
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {MEMBERS.map((member) => (
+            {MEMBERS.map((member, i) => (
               <MemberCard
                 key={member.name}
                 name={member.name}
@@ -90,6 +89,7 @@ export default function AboutPage() {
                 photo={member.photo}
                 objectPosition={member.objectPosition}
                 bio={member.bio}
+                revealDelay={i * 90}
               />
             ))}
           </div>
