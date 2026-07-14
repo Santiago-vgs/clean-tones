@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand blue — cool, desaturated, cinematic (not SaaS azure) */
+  --color-brand-50: #EEF3F8;
+  --color-brand-100: #DDE6EF;
+  --color-brand-200: #C0CFDE;
+  --color-brand-300: #9DB1C6;
+  --color-brand-400: #7389A3;
+  --color-brand-500: #6B80A0;
+  --color-brand-600: #3C4E63;
+  --color-brand-700: #2A3849;
+  --color-brand-800: #1B2634;
+  --color-brand-900: #121A26;
+  --color-brand-950: #0B111A;
+
+  /* Gold accent */
+  --color-gold: #F5A623;
+  --color-gold-dark: #D4891A;
+
+  /* Warm neutrals */
+  --color-warm-50: #FAF9F7;
+  --color-warm-100: #F0EDE8;
+  --color-warm-200: #E0D9D0;
+  --color-warm-300: #C8BDB0;
+  --color-warm-400: #A89585;
+  --color-warm-500: #8C7B6B;
+  --color-warm-600: #6E5F52;
+  --color-warm-700: #524639;
+  --color-warm-800: #362E25;
+  --color-warm-900: #1E1A15;
+
+  /* Fonts */
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-sans);
+}
+
+:root {
+  --background: #0B111A;
+  --foreground: #EEF3F8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Holographic / iridescent primary — a swirl of blue → purple → green foil.
+   Trial accent applied via .holo-text (clipped gradient) and .holo-bg. */
+:root {
+  --holo: linear-gradient(
+    115deg,
+    #5B8CFF 0%,
+    #8A5CF6 18%,
+    #C45CF6 34%,
+    #5CE1E6 55%,
+    #43E97B 74%,
+    #8A5CF6 90%,
+    #5B8CFF 100%
+  );
+}
+
+.holo-text {
+  background: var(--holo);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: holo-shift 9s ease-in-out infinite;
+}
+
+.holo-bg {
+  background: var(--holo);
+  background-size: 300% 300%;
+  animation: holo-shift 9s ease-in-out infinite;
+}
+
+@keyframes holo-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .holo-text,
+  .holo-bg { animation: none; }
+}
+
+/* Text link CTA — underlined uppercase text instead of filled buttons.
+   Underline is a pseudo-element so it can go gradient on hover. */
+.link-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  color: var(--color-brand-50);
+  transition: color 0.25s ease;
+}
+.link-cta::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-brand-50);
+  opacity: 0.4;
+  transition: opacity 0.25s ease, height 0.25s ease, bottom 0.25s ease, background 0.25s ease;
+}
+.link-cta:hover {
+  background: var(--holo);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: holo-shift 9s ease-in-out infinite;
+}
+.link-cta:hover::after {
+  opacity: 1;
+  height: 2px;
+  bottom: -0.55rem;
+  background: var(--holo);
+}
+.link-cta.is-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
