@@ -1,4 +1,5 @@
 import { Gig } from "@/lib/types";
+import { safeHttpUrl } from "@/lib/url";
 
 interface ShowCardProps {
   gig: Gig;
@@ -18,7 +19,9 @@ function formatDate(dateStr: string) {
 
 export default function ShowCard({ gig, past = false }: ShowCardProps) {
   const { day, date, month, year, time } = formatDate(gig.datetime);
-  const ticketUrl = gig.offers?.find((o) => o.type === "Tickets")?.url ?? gig.offers?.[0]?.url;
+  const ticketUrl = safeHttpUrl(
+    gig.offers?.find((o) => o.type === "Tickets")?.url ?? gig.offers?.[0]?.url
+  );
   const isSoldOut = gig.offers?.[0]?.status === "soldout";
 
   return (

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Gig } from "@/lib/types";
+import { safeHttpUrl } from "@/lib/url";
 
 interface NextGigProps {
   gig: Gig | null;
@@ -19,7 +20,7 @@ function formatDate(dateStr: string) {
 export default function NextGig({ gig }: NextGigProps) {
   if (!gig) {
     return (
-      <section className="bg-brand-900/40 border-y border-brand-800 py-16">
+      <section data-reveal className="bg-brand-900/40 border-y border-brand-800 py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-brand-400 text-sm tracking-widest uppercase mb-2">Next Show</p>
           <p className="text-brand-300 text-lg">No upcoming shows. Follow us to stay in the loop.</p>
@@ -35,10 +36,10 @@ export default function NextGig({ gig }: NextGigProps) {
   }
 
   const { day, date, month, year, time } = formatDate(gig.datetime);
-  const ticketUrl = gig.offers?.[0]?.url;
+  const ticketUrl = safeHttpUrl(gig.offers?.[0]?.url);
 
   return (
-    <section className="bg-brand-900/40 border-y border-brand-800 py-16">
+    <section data-reveal className="bg-brand-900/40 border-y border-brand-800 py-16">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-brand-400 text-xs tracking-[0.3em] uppercase mb-8 text-center">
           Next Show
