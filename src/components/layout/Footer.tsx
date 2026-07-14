@@ -18,7 +18,7 @@ export default function Footer() {
               {BAND_NAME}
             </Link>
             <p className="text-brand-400 text-sm leading-relaxed">
-              Rock &amp; blues from {BAND_LOCATION}.
+              Alternative rock from {BAND_LOCATION}.
             </p>
           </div>
 
