@@ -17,7 +17,7 @@ export default function BandBio() {
           </p>
         </div>
 
-        <div className="aspect-[3/4] rounded-xl overflow-hidden border border-brand-800">
+        <div className="aspect-[3/4] rounded-none overflow-hidden border border-brand-800">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/band/bandphoto.jpg"

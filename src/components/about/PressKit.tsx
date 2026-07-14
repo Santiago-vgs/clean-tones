@@ -8,14 +8,14 @@ export default function PressKit() {
         Bookings & Press
       </h2>
 
-      <div className="bg-brand-900/40 border border-brand-800 rounded-xl p-6 mb-12">
+      <div className="bg-brand-900/40 border border-brand-800 rounded-none p-6 mb-12">
         <h3 className="text-brand-200 font-semibold mb-4">Get in Touch</h3>
         <p className="text-brand-400 text-sm mb-4 leading-relaxed">
           For booking enquiries, press requests, or general info, reach out directly. Feel free to grab any photos from our gallery.
         </p>
         <a
           href={`mailto:${BAND_EMAIL}`}
-          className="link-cta text-sm"
+          className="btn"
         >
           Email the Band
         </a>

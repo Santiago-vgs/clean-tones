@@ -26,7 +26,7 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 export default function MemberCard({ name, role, photo, objectPosition = "center", bio }: MemberCardProps) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-lg border-2 border-gold/60 bg-brand-950 shadow-xl shadow-black/40">
+    <div className="flex flex-col overflow-hidden rounded-none border-2 border-gold/60 bg-brand-950 shadow-xl shadow-black/40">
       {/* Position ribbon */}
       <div className="flex items-center justify-between bg-gold px-4 py-2">
         <span className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-950">
