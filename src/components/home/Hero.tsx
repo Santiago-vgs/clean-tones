@@ -33,7 +33,7 @@ export default function Hero() {
         <p className="reveal-load text-white/85 text-[0.65rem] tracking-[0.2em] sm:text-sm sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 font-semibold [text-shadow:0_1px_12px_rgba(0,0,0,0.8)]" style={{ animationDelay: "0.1s" }}>
           Perth, Western Australia
         </p>
-        <h1 className="reveal-load font-display text-7xl md:text-9xl text-white uppercase mb-6 leading-[0.9] [text-shadow:0_3px_24px_rgba(0,0,0,0.85)]" style={{ animationDelay: "0.2s" }}>
+        <h1 className="reveal-load font-display text-7xl md:text-9xl text-white/75 uppercase mb-6 leading-[0.9] [text-shadow:0_2px_16px_rgba(0,0,0,0.55)]" style={{ animationDelay: "0.2s" }}>
           Clean Tones
         </h1>
         <p className="reveal-load text-white/85 text-lg md:text-xl mb-10 tracking-wide [text-shadow:0_1px_16px_rgba(0,0,0,0.8)]" style={{ animationDelay: "0.42s" }}>
