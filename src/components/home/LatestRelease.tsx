@@ -24,7 +24,7 @@ export default function LatestRelease() {
 
         <div className="max-w-2xl mx-auto">
           {/* Spotify embed */}
-          <div className="rounded-xl overflow-hidden mb-8 shadow-2xl shadow-brand-950">
+          <div className="rounded-none overflow-hidden mb-8 shadow-2xl shadow-brand-950">
             <iframe
               src={LATEST_RELEASE.spotifyEmbedSrc}
               width="100%"
@@ -44,7 +44,7 @@ export default function LatestRelease() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 border border-brand-700 hover:border-gold hover:text-gold text-brand-300 px-5 py-2 rounded-full text-sm transition-colors duration-200"
+                  className="flex items-center gap-2 border border-brand-700 hover:border-gold hover:text-gold text-brand-300 px-5 py-2 rounded-none text-sm transition-colors duration-200"
                 >
                   <Icon size={16} />
                   {label}

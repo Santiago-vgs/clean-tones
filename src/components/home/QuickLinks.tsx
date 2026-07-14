@@ -35,7 +35,7 @@ export default function QuickLinks() {
             <Link
               key={href}
               href={href}
-              className="group relative bg-brand-900/60 hover:bg-brand-800/60 border border-brand-800 hover:border-brand-600 rounded-xl p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-900/50"
+              className="group relative bg-brand-900/60 hover:bg-brand-800/60 border border-brand-800 hover:border-brand-600 rounded-none p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-900/50"
             >
               <h3 className="font-display text-xl font-bold text-brand-50 group-hover:text-gold transition-colors duration-200 uppercase tracking-wider mb-1">
                 {label}

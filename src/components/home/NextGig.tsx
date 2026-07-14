@@ -67,12 +67,12 @@ export default function NextGig({ gig }: NextGigProps) {
                 href={ticketUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-cta text-sm"
+                className="btn"
               >
                 Get Tickets
               </a>
             )}
-            <Link href="/shows" className="link-cta text-sm">
+            <Link href="/shows" className="btn">
               All Shows
             </Link>
           </div>
