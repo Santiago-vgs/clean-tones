@@ -22,19 +22,19 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: "The Clean Tones · Perth Alternative Rock",
-    template: "%s · The Clean Tones",
+    default: "Clean Tones · Perth Alternative Rock",
+    template: "%s · Clean Tones",
   },
   description:
-    "The Clean Tones are an alternative rock band from Perth, Western Australia. Catch them live, stream their music, and stay in the loop.",
+    "Clean Tones are an alternative rock band from Perth, Western Australia. Catch them live, stream their music, and stay in the loop.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "The Clean Tones",
+    title: "Clean Tones",
     description: "Alternative rock from Perth, Western Australia.",
     url: "/",
-    siteName: "The Clean Tones",
+    siteName: "Clean Tones",
     locale: "en_AU",
     type: "website",
   },

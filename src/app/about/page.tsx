@@ -6,7 +6,7 @@ import PageHeader from "@/components/shared/PageHeader";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Meet The Clean Tones: the story of the band and the four members behind Perth's alternative rock sound.",
+  description: "Meet Clean Tones: the story of the band and the four members behind Perth's alternative rock sound.",
 };
 
 const MEMBERS = [

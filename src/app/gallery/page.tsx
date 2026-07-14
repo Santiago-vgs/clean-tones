@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import PageHeader from "@/components/shared/PageHeader";
 
 const PHOTOS = [
-  { src: "/images/band/groupshot.jpeg", alt: "The Clean Tones" },
-  { src: "/images/band/hero.jpg", alt: "The Clean Tones" },
-  { src: "/images/band/bandphoto.jpg", alt: "The Clean Tones" },
+  { src: "/images/band/groupshot.jpeg", alt: "Clean Tones" },
+  { src: "/images/band/hero.jpg", alt: "Clean Tones" },
+  { src: "/images/band/bandphoto.jpg", alt: "Clean Tones" },
   { src: "/images/releases/beggin_please.png", alt: "Beggin Please single cover" },
   { src: "/images/releases/summertime.jpg", alt: "Summertime single cover" },
   { src: "/images/members/jayden.jpg", alt: "Jayden" },

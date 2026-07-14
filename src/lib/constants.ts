@@ -1,4 +1,4 @@
-export const BAND_NAME = "The Clean Tones";
+export const BAND_NAME = "Clean Tones";
 export const BAND_LOCATION = "Perth, Western Australia";
 export const BAND_EMAIL = "thecleantones@gmail.com";
 export const BANDSINTOWN_ARTIST = "Clean Tones";

@@ -57,7 +57,7 @@ export default function MemberCard({ name, role, photo, objectPosition = "center
           <h3 className="font-display text-3xl font-black uppercase leading-none text-white">
             {name}
           </h3>
-          <p className="text-gold text-[11px] uppercase tracking-widest mt-1">The Clean Tones</p>
+          <p className="text-gold text-[11px] uppercase tracking-widest mt-1">Clean Tones</p>
         </div>
       </div>
 

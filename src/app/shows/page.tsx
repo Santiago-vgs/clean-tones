@@ -6,7 +6,7 @@ import { Gig } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Shows",
-  description: "Upcoming gigs and past shows from The Clean Tones around Perth and Fremantle.",
+  description: "Upcoming gigs and past shows from Clean Tones around Perth and Fremantle.",
 };
 
 export const revalidate = 3600;
