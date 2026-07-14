@@ -23,8 +23,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-brand-900/90 backdrop-blur-lg shadow-lg shadow-brand-950/50"
-            : "bg-transparent"
+            ? "bg-brand-950/90 backdrop-blur-lg border-b-2 border-brand-800 shadow-sm"
+            : "bg-brand-950/70 backdrop-blur-sm"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
