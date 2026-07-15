@@ -6,9 +6,20 @@ export const BANDSINTOWN_ARTIST = "Clean Tones";
 export const NAV_LINKS = [
   { href: "/shows", label: "Shows" },
   { href: "/music", label: "Music" },
+  { href: "/scroll", label: "Scroll" },
   { href: "/gallery", label: "Gallery" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+];
+
+// YouTube Shorts shown in the /scroll reels feed, top to bottom.
+// Use the 11-char video ID from a youtube.com/shorts/<ID> (or watch?v=<ID>) URL.
+// Replace these placeholders with real Clean Tones Shorts.
+export const SHORTS = [
+  { id: "S5syUU08MWk", title: "Beggin Please at Clancy's, Fremantle" },
+  { id: "2dHwfkHFVeA", title: "When the Drummer Won't End the Song" },
+  { id: "prusPNnK9w4", title: "Song of the Summer?" },
+  { id: "SBhRaIIdcnM", title: "Live in Perth" },
 ];
 
 export const SOCIAL_LINKS = {
