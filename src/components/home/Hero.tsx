@@ -3,6 +3,7 @@
 import { getImageProps } from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { FaRegHandPointer } from "react-icons/fa";
 import { BAND_NAME } from "@/lib/constants";
 
 export default function Hero() {
@@ -92,8 +93,12 @@ export default function Hero() {
       </div>
 
       {/* Hold-to-peek hint */}
-      <div className={`absolute top-20 left-1/2 -translate-x-1/2 text-white/55 text-[10px] tracking-[0.25em] uppercase pointer-events-none ${fade}`}>
-        Hold to view photo
+      <div className={`absolute bottom-24 left-1/2 -translate-x-1/2 pointer-events-none ${fade}`}>
+        <span className="inline-flex items-center gap-2 border border-white/25 bg-black/25 backdrop-blur-sm px-3 py-1.5 text-white/80 text-[10px] tracking-[0.2em] uppercase whitespace-nowrap">
+          <FaRegHandPointer size={11} className="shrink-0 opacity-80" />
+          <span className="sm:hidden">Tap &amp; hold to view</span>
+          <span className="hidden sm:inline">Click &amp; hold to view</span>
+        </span>
       </div>
 
       {/* Scroll cue */}
