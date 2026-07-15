@@ -9,6 +9,11 @@ const PLAYLIST_ID = process.env.YOUTUBE_SHORTS_PLAYLIST_ID; // PL… (optional, 
 
 const API = "https://www.googleapis.com/youtube/v3";
 
+// Drop hashtags and tidy whitespace from a video title for a clean caption.
+function cleanTitle(title: string): string {
+  return title.replace(/#[\p{L}\p{N}_]+/gu, "").replace(/\s+/g, " ").trim() || "Clean Tones";
+}
+
 // ISO 8601 duration (e.g. "PT1M5S") -> seconds
 function durationToSeconds(iso: string): number {
   const m = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
@@ -39,7 +44,7 @@ export async function getShorts(): Promise<Short[] | null> {
     const items: Short[] = (data.items ?? [])
       .map((it: { contentDetails?: { videoId?: string }; snippet?: { title?: string } }) => ({
         id: it.contentDetails?.videoId ?? "",
-        title: it.snippet?.title ?? "Clean Tones",
+        title: cleanTitle(it.snippet?.title ?? "Clean Tones"),
       }))
       .filter((s: Short) => s.id);
 

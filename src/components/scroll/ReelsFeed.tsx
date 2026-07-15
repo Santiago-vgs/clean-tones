@@ -56,7 +56,7 @@ export default function ReelsFeed({ shorts }: { shorts: Short[] }) {
             {i === active ? (
               <iframe
                 ref={iframeRef}
-                src={`https://www.youtube.com/embed/${short.id}?autoplay=1&mute=1&enablejsapi=1&playsinline=1&loop=1&playlist=${short.id}&controls=1&rel=0&modestbranding=1`}
+                src={`https://www.youtube.com/embed/${short.id}?autoplay=1&mute=1&enablejsapi=1&playsinline=1&loop=1&playlist=${short.id}&controls=0&fs=0&disablekb=1&rel=0&modestbranding=1`}
                 title={short.title}
                 allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                 onLoad={() => {
